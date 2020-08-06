@@ -17,7 +17,7 @@ a = [3, 6, 9]
 %and a column vector
 b = [3; 6; 9]
 
-%Question 12 Perform matrix and then element-wise multiplicationon these two vectors. Can you explainthe error in the second case?
+%Question 12 Perform matrix and then element-wise multiplicationon these two vectors. Can you explain the error in the second case?
 a * b
 a .* b
 
