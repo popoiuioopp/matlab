@@ -9,9 +9,9 @@ D = [C(1,1:3); C(2,1:3); C(3,1:3)]
 E = [C(7,6:end); C(8,6:end); C(9,6:end)]
 
 %Quesiton 26 Perform the element-wise multiplication DE and ED.
-%D.*E
-%E.*D
+%D.*E ERROR THE MATRIX NEED TO BE MATCHED TO EACHOTHER
+%E.*D ERROR THE MATRIX NEED TO BE MATCHED TO EACHOTHER
 
 %Question 27 Perform the matrix multiplication DE and ED.
-%D*E
-%E*D
+%D*E ERROR THE MATRIX NEED TO BE MATCHED TO EACHOTHER
+%E*D ERROR THE MATRIX NEED TO BE MATCHED TO EACHOTHER
