@@ -27,9 +27,8 @@ number in the matrixspecified by the user, then insert this new vector as the
 third element of the cell array and shiftthe previous third element (string) 
 to the fourth position of the cell array.
 %}
-multiply_num = input('Enter the mutiply number: ');
 myarray(4) = myarray(3);
-myarray{3} = myarray{2} * multiply_num;;
+myarray{3} = myarray{2} * res;
 
 %{
 4. Plot the 2 vectors from your cell array against each other in one line of code.

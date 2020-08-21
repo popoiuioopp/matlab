@@ -6,9 +6,10 @@ should tell the user it requires more inputs.
 %}
 function result = problem23(numbers)
   if length(numbers) < 2
-    disp(["The vector size is less than 2. Try again"])
+    disp("The vector size is less than 2. Try again")
     return
-  endif
+  end
   disp(['The length is ', num2str(length(numbers))])
-  sort(numbers)([1 2])
-endfunction
+  number = sort(numbers);
+  result = number([1 2]);
+end

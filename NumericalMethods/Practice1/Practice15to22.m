@@ -23,8 +23,8 @@ myArray2 = sort(myArray2)
 %Question 22  Round the 2nd, 4th, 6th and 8th elements up to the nearest integer, and the 1st, 3rd, 5th and 7th elements down to the nearest integer.
 for v = [2 4 6 8]
   myArray2(v) = ceil(myArray2(v));
-endfor
+end
 for v = [1 3 5 7]
   myArray2(v) = floor(myArray2(v));
-endfor
+end
 myArray2

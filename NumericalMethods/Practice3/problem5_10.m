@@ -7,4 +7,38 @@ my_structure = struct('name', {'Harry', 'Georgia', 'Elizabeth'}, 'age', ...
 %{
 6.Change Georgia’s weight to be 68 kg.
 %}
-ind = find(my_structure.name == "Georgia")
+my_structure(2).weight = 68;
+
+%{
+7.Add an extra person to the data with the following details: Name, Lily; 
+Age, 24; Height, 162cm; Weight, 60 kg.
+%}
+my_structure(4).name = 'Lily';
+my_structure(4).age = 24;
+my_structure(4).height = 162;
+my_structure(4).weight = 60;
+
+%{
+8.Using one line of code calculate the mean height of the group.
+%}
+mean([my_structure.height])
+
+%{
+9.BMI is given by Mass (kg) divided by Height (metres) squared. Calculate 
+the BMI of eachperson in the group and make a new field in your structure 
+that saves this data for each person.
+%}
+cell_size = size(my_structure)
+for j = 1 : cell_size(2)
+    my_structure(j).('bmi') = my_structure(j).weight/(my_structure(j).height/100)^2
+end
+
+%{
+10.Use the sprintf function to display the names of the people in the group 
+along with their age,height and BMI displaying each value to 2 decimal places).
+%}
+
+for j = 1 : cell_size(2)
+    disp(sprintf('Name:%s \nage:%d \nheight:%d \nBMI:%.2f\n\n',my_structure(j).name, ...
+    my_structure(j).age, my_structure(j).height ,my_structure(j).bmi))
+end
