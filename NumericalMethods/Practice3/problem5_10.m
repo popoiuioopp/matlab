@@ -7,7 +7,11 @@ my_structure = struct('name', {'Harry', 'Georgia', 'Elizabeth'}, 'age', ...
 %{
 6.Change Georgia’s weight to be 68 kg.
 %}
-my_structure(2).weight = 68;
+for j=1 : length(my_structure)
+    if strcmp(my_structure(j).name,'Georgia')
+        my_structure(j).weight = 68;
+    end
+end
 
 %{
 7.Add an extra person to the data with the following details: Name, Lily; 

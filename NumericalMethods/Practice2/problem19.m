@@ -8,5 +8,5 @@ function result = problem19(number1, number2)
     result = number1 + number2;
   else
     result = abs(number1 - number2);
-  endif
-endfunction
+  end
+end
