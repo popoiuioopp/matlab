@@ -1,0 +1,9 @@
+%--------Incremental search----------%
+h = 0.2; starting = -10; ending = 10;
+n0 = starting;
+n1 = n0 + n1;
+while n < ending || (prob9func(n0)*prob9func(n1)) > 0
+    
+    n = n + h; 
+end
+    
