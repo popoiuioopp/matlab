@@ -28,4 +28,4 @@ concentrations.
 %}
 ayy = [130 -30 0; 90 -90 0; -40 -60 120];
 bee = [500; 0; 500];
-ecks = ayy\bee
+ecks = ayy\bee;
