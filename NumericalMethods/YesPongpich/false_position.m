@@ -4,6 +4,14 @@ function result = false_position(f, starting, ending)
         return;
     end
     tol = 0.001;
-    while 
+    a = starting; b = ending; result = a - ((f(a)*(b-a))/(f(b)-f(a)));
+    while abs(starting - ending) > tol
+        if f(a) * f(result) < 0
+            b = result;
+        else
+            a = result;
+        end
+        result = a - ((f(a)*(b-a))/(f(b)-f(a)));
+    end
 end
 
