@@ -26,10 +26,10 @@ Question 7
 m = 0;
 rtol = 0.001;
 rerror = 1;
-result = (4^(n + 1))/factorial(3*n + 1);
+result = (4^(m + 1))/factorial(3*m + 1);
 result0 = 0;
 while rerror > rtol
-    result = result + (4^(n + 1))/factorial(3*n + 1);
+    result = result + (4^(m + 1))/factorial(3*m + 1);
     rerror = abs((result - result0)/result);
     result0 = result;
     m = m + 1;

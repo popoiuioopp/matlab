@@ -1,11 +1,12 @@
 %1
 poly1 = [1, 0, -10, 0, 21, 0];
-x = roots(poly1);
+x = roots(poly1)
 
 %2
 p = @(x) (x.^5) - (10.*(x.^3)) + (21.*x);
-p(x);
+p(x)
 
 %3
 poly2 = [-2, 0, -1.5, 0, 0, 10, 2];
-x2 = roots(poly2);
+x2 = roots(poly2)
+p(x)

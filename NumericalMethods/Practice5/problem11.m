@@ -1,6 +1,8 @@
 syms x;
-m = @(x) cos((x^2)/2) + cos(2*x);
-dm = eval(['@(x)' vectorize(char(diff(m(x))))]);
+m = @(x) cos((x^2)/2) + cos(2*x)
+dm = eval(['@(x)' vectorize(char(diff(m(x))))])
+dm1 = matlabFunction(diff(m(x)))
+%หัวดอ
 linspace(-pi, pi, 100);
 x = [];
 for j = linspace(-pi, pi, 100)
