@@ -2,14 +2,17 @@ function x1 = NewtonRaphson(f, x0, desire_error)
 syms x;
 fd = eval(['@(x)' vectorize(char(diff(f(x))))]);
 format long;
-j = 0;
+count = 0;
 
 x1 = fd(x0);
-while abs((x1-x0)/x1) * 100 > desire_error
+error = 100;
+while error > desire_error
+    count = count + 1;
     x0 = x1;
     x1 = x0 - (f(x0)/fd(x0));
-    %fprintf("|%f - %f| = %f\n", x0, x1, abs((x1-x0)/x1) * 100);
-    j = j+1;
+    error = abs((x1-x0)/x1) * 100;
+    fprintf("\nError = %f %% & Iteration = %d\nx1 = %f\n", error, count, x1);
 end
-%fprintf("Total = %d times\n", j);
+%fprintf("\nResult = %f\n", x1);
+disp("----------------");
 end
