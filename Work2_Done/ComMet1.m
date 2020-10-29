@@ -21,7 +21,7 @@ plot(linspace(-10,10,100), zeros(100), '--'); % Plot the zero line
 plot(root, f(root), 'ro') %Plot the point
 
 %Question 3 
-root = NewtonRaphson(f, 0.7, 2); 
+root = NewtonRaphsonMethod(f, 0.7, 2); 
 figure('Name', 'Question 3');
 hold on;
 title('Question 3')

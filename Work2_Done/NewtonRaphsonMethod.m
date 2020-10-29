@@ -1,4 +1,4 @@
-function x1 = NewtonRaphson(f, x0, error)
+function x1 = NewtonRaphsonMethod(f, x0, error)
     syms x;
     f1 = matlabFunction(diff(f(x)));
     iteration = 0;
