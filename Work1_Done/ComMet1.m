@@ -3,7 +3,7 @@ PART I |  Determine the root of the following easily
 differentiable function,
         e .^ (0.5 .* x) = 5 - 5 .* x
 %}
-clf; %Clear all figure.
+%Clear all figure.
 %{
 1.Create a Matlab script or function to solve the above 
 equation by the graphical method, andestimate the roots.
