@@ -1,17 +1,8 @@
-%Question 5.13 in text book.
-g = 9.8;
-c = 15;
-V = 35;
-t = 9;
-f = @(m) ((g.*m)./c).*(1-exp(-(c./m).*t)) - V;
-fplot(f);
-hold on;
-grid on;
-
-syms m;
-g = matlabFunction(diff(f(m))); 
-guess = 10;
-error = 0.1;
+f = @(x) 5-(5.*x)-(exp(0.5.*x));
+syms x;
+g = matlabFunction(diff(f(x))); 
+guess = 0.7;
+error = 2;
 iter = 100;
 guess0 = 999;
 while iter
@@ -29,5 +20,9 @@ while iter
     guess0 = guess;
 end
 
-plot(root, f(root), 'cd', 'MarkerSize', 15, 'MarkerFaceColor',[0.6350 0.0780 0.1840]);
 
+hold on;
+grid on;
+fplot(f);
+ %Plot the point
+plot(root, f(root), 'cd', 'MarkerSize', 15, 'MarkerFaceColor',[0.6350 0.0780 0.1840]);

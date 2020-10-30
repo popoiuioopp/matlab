@@ -1,7 +1,7 @@
 %Question 5.12 in text book.
 f = @(x) (-2.*x.^6)-(1.5.*x.^4)+(10.*x) + 2;
 syms x;
-f1 = matlabFunction(diff(f(x))); 
+f1 = matlabFunction(diff(FunctionPart1(x))); 
 
 xl = 0.5; 
 xu = 1;
@@ -14,10 +14,10 @@ xp = xl;
 while abs((xc - xp)/xc * 100) > a_error
     xp = mid;
     
-    if f(xl) * f(mid) < 0
+    if FunctionPart1(xl) * FunctionPart1(mid) < 0
         xu = mid;
         
-    elseif f(xu) * f(mid) < 0
+    elseif FunctionPart1(xu) * FunctionPart1(mid) < 0
         xl = mid;
         
     end
