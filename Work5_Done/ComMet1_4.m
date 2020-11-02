@@ -1,7 +1,6 @@
 number = 10; 
 
 % Bisection method
-
 count = 0; 
 xl = 0; 
 xu = 1; 
@@ -45,7 +44,7 @@ end
 
 title('Part 1 | Question 4') 
 hold on;
-error_bisection(1) = 100; error_newton(1) = 100;
+bisec(1) = 100; newton(1) = 100;
 
 plot(linspace(1,number,number), bisec,'k-');
 plot(linspace(1,number,number), newton,'r-');

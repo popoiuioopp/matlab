@@ -10,11 +10,12 @@ x = 0.707071;
 plot(x, f(x), 'or', 'MarkerFaceColor', 'b'); 
 
 %-------------------2-------------------%
+f = @(x) 5-(5.*x)+(-exp(0.5.*x));
 es = 2;
 xi = 0;
 xu = 2;
 xo = xi;
-count = 0;
+count = 0   ;
 ea = 100;
 while ea>es
     xm = (xi+xu)/2;
@@ -29,6 +30,7 @@ while ea>es
     xo = xm;
     %fprintf("%f, %f, %f, %f, %f, %f, %f\n",xi, xu, xo, f(xi), f(xu), f(xo), ea)
 end
+
 subplot(4,1,2);
 hold on;
 title('2')
@@ -37,6 +39,7 @@ plot(xm, f(xm), 'or', 'MarkerFaceColor', 'b');
 
 
 %-------------------3-------------------%
+f = @(x) 5-(5.*x)+(-exp(0.5.*x));
 xn = 1;
 x_old = 100;
 count = 0;
@@ -56,48 +59,50 @@ plot(xn, f(xn), 'or', 'MarkerFaceColor', 'b');
 
 
 %-------------------4-------------------%
-n = 20; 
-iteration = 0; 
-xl = -1; 
-xu = 1; 
-midpoint = (xl + xu)/2;
-error_bisection = []; 
-while iteration < n
-    iteration = iteration + 1;
-    previous = midpoint; 
-    if f(xl) * f(midpoint) < 0
-        xu = midpoint;
-    elseif f(xu) * f(midpoint) < 0
-        xl = midpoint;
-    end
-    midpoint = (xl + xu)/2;
-    current = midpoint;
-    error_bisection(iteration) = abs((current - previous)/current); % Add the error value to vector.
-end
+f = @(x) 5-(5.*x)+(-exp(0.5.*x));
+total_iteration = 10; 
+bisection_error = [];
+newton_error =[];
 
-%Newton-Raphson
-n = 20;
-iteration = 0;
-x0 = 1;
+xi = 0;
+xu = 2;
+xo = xi;
+count = 0;
+while count < total_iteration+1
+    xm = (xi+xu)/2;
+    if f(xu)*f(xm) > 0
+        xu = xm;
+    elseif f(xi)*f(xm) > 0
+        xi = xm;
+    end 
+    error = 100 * abs((xm-xo)/xm);
+    bisection_error = [bisection_error error];
+    count = count + 1;
+    xo = xm;
+end
+bisection_error(1) = [];
+
+xn = 1;
+x_old = 100;
+count = 0;
 syms x;
-f1 = matlabFunction(diff(f(x)));
-x1 = f1(x0);
-error_newton = [];
-while iteration < n
-    iteration = iteration + 1;
-    x0 = x1;
-    x1 = x0 - (f(x0)/f1(x0));
-    error_newton(iteration) = abs((x1-x0)/x1);
+f_div = matlabFunction(diff(f(x))); 
+while count < total_iteration
+    x_old = xn;
+    xn = xn - (f(xn))/(f_div(xn));
+    error = 100 * abs((xn-x_old)/xn);
+    newton_error = [newton_error error];
+    count = count + 1;
 end
+newton_error = [100 newton_error];
+newton_error(end) = [];
 
-
-figure('Name', 'Question 4');
-title('Question 4')
+subplot(4,1,4);
+title('4')
 hold on;
-error_bisection(1) = []; 
-error_newton(1) = [];
-plot(linspace(1,n-1,n-1), error_bisection,'g-');
-plot(linspace(1,n-1,n-1), error_newton,'c-');
-legend('Bisection','Newton-Raphson');
+grid on;
+plot(linspace(1, total_iteration, max(size(bisection_error))), bisection_error);
+plot(linspace(1, total_iteration, max(size(newton_error))), newton_error);
+legend('Bisection Method','Newton-Raphson Method');
 xlabel('Iteration');
 ylabel('Relative Errors');
