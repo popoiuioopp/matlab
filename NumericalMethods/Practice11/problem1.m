@@ -15,3 +15,10 @@ disp(ans_a);
 disp(ans_b);
 
 %----------------------Question3----------------------%
+f2a = @(x, y, z) ((x.^3)-(2.*y.*z));
+n = 1000;
+pointx = (-1)+(3-(-1)).*rand(n,1);
+pointy = (6)+(0-(6)).*rand(n,1);
+pointz = (4)+(-4-(4)).*rand(n,1);
+scatter3(pointx,pointy,pointz);
+
