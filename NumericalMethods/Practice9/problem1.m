@@ -56,7 +56,7 @@ plot(xx, polyval(pcub, xx));
 plot(3, y_ans_cub, 'dk');
 title('Subplot 3: Cubic')
 
-%All dataset : degree of 6 (n-1)_ :  
+%All dataset : degree of 6 (n-1):  
 Aall = x(1:end)';
 xx = linspace(min(Aall), max(Aall));
 xsize = max(size(x));
