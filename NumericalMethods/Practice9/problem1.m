@@ -9,8 +9,9 @@ data set. Make one plot with the data alongwith the
 degree of interpolatingpolynomial on the horizontal axis 
 and the estimated value of y at x = 3 on thevertical axis.
 %}
+clear;clc;
 x = [0 1.8 5 6 8.2 9.2 12];
-y = [26 16.415 5.375 3.5 2.015 2.54 8];
+y = [26 16.415 5.375 3.5 2.015 2.54 8];  
 clf;
 
 %Linear : 2 unknowns : p1x + p2

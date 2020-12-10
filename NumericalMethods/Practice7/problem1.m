@@ -74,7 +74,7 @@ V = 10; n = (1000/14.006747)*2; %Nitrogen = 2element
 R = (a1*V)/n;
 
 %{
-5.Linearise the following model and use it to estimate the parameters 
+5.Linearize the following model and use it to estimate the parameters 
 α​4​ and β​4​ forthe following data. Plot the data with the line of best 
 fit and calculate the correlationcoefficient.
                 y = α​4​ .* x .* exp(β​4​).^ x

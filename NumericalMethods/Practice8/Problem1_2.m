@@ -68,3 +68,12 @@ decide if one equation is better than the other or not.
 %}
 x = [10 20 30 40 50 60 70 80];
 y = [25 70 380 550 610 1220 830 1450];
+
+
+%{
+4. For the following data use polynomial regression to get
+an equation that predictsthe dissolved oxygen concentration 
+as a function of temperature for the case wherethe chloride 
+concentration is 0. Graph the data and your fitting equation.
+%}
+ 
