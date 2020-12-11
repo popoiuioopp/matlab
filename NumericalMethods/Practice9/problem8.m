@@ -22,6 +22,6 @@ value at each of the coordinate locations).
 
 x = [10 15 30;
      30 35 50];
- 
- 
- 
+
+result = pp9_bilinear(x, [10,10]);
+imagesc(result);

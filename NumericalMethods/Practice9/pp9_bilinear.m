@@ -12,20 +12,16 @@ function result = pp9_bilinear(img, blocksize)
     result = [];
 
     for ya = 1:2:zz(1) - 1
-
-        % fucking stupid matlab function
-        % generate overlapping vectors
-        r1 = buffer(img(ya,:), 2, 1);
-        r2 = buffer(img(ya+1,:), 2, 1);
-        r1(:,1) = [];
-        r2(:,1) = [];
+ 
+        r1 = mybuffer(img(ya,:), 2, 1);
+        r2 = mybuffer(img(ya+1,:), 2, 1);
         r3 = [r1; r2];
         sr3 = size(r3);
 
         % variable to store each constructed row
         row_out = [];
 
-        for j = 1:sr3(2)
+        for j = 1:sr3(2) 
 
             % Get group of 4 points for interpolation
             c = r3(:,j);

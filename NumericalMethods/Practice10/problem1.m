@@ -1,5 +1,5 @@
 %1 2 4 5 6
-
+clear; clf; close all; clc;
 %{
 1.Use Matlab’s integral function to evaluate the following integral.
 %}
@@ -8,10 +8,10 @@ fprintf("Question 1 : integral = %f\n", integral(f,-2,4));
 
 %{
 2.Use Matlab’s trapz function to determine the distance travelled as 
-recorded in thefollowing data table of velocity and time.
+recorded in the following data table of velocity and time.
 %}
-t = [1 2 3.25 4.5 6 7 8 8.5 9 10];
-v = [5 6 5.5  7   8.5 8 6 7 7  5];
+t = [1 2 3.25 4.5 6   7 8 8.5 9 10];
+v = [5 6 5.5  7   8.5 8 6 7   7  5];
 fprintf("Question 2 : distance = %f meters\n", trapz(t,v));
 
 %{
@@ -37,9 +37,9 @@ an end point, and anumber of segments.
 f = @(x) (1 - x - (4 .* x .^ 3) + (2 .* x .^5));
 x = -2: 0.02: 4;
 y = f(x);
-result = problem5func(f, min(x), max(x), 301);
+result = problem5func(f, min(x), max(x), length(x));
 test = trapz(x,y);
-fprintf("Question 5 : My Composite Trapezium = %f\n\t\t\t Build in Trapz = %f\n", result, test)
+fprintf("Question 5 : My Composite Trapezium = %f\n\t\t\t Build in Trapz = %f\n", result, test);
 
 %{
 6.Write a function file that implements the composite Simpson’s 1/3 rule. 
@@ -48,3 +48,12 @@ end point, and anumber of segments. Your function should check that the
 user provided an evennumber of segments (consider what default behaviour 
 you will do if there are anodd number of segments).
 %}  
+%f = @(x) (1 - x - (4 .* x .^ 3) + (2 .* x .^5));
+f = @(x) (0.2 + 25.*x - 200.*x.^2 + 675.*x.^3 - 900.*x.^4 + 400.*x.^5);
+%x = -2: 0.02: 4;
+x = linspace(0,0.8,4);
+y = f(x);
+result = problem6func(f, min(x), max(x), length(x));
+test = trapz(x,y);
+fprintf("Question 6 : My Composite Simpson's 1/3 = %f\n\t\t\t Build in Trapz = %f\n", result, test);
+

@@ -7,4 +7,3 @@ function result = problem5func(f, startpoint, endpoint, n)
     %disp(sumofy);
     result = (h/2)*(f(startpoint)+2*sum_of_fx+f(endpoint));
 end
-
