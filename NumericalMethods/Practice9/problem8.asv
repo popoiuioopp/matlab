@@ -25,8 +25,7 @@ y = [10 30];
 
 a = polyfit(x,y,1)
 
-val = polyval(a, [2 3])
-
+f = @(x) a(1)
 
 %{
 x = [10 15 30;

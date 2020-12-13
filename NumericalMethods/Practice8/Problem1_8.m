@@ -25,7 +25,7 @@ xy = sum(x.*y);
 x2y = sum((x.^2) .* y);
 x3y = sum((x.^3) .* y);
 
-n = max(size(x));
+n = length(x);
 
 M = [n , x1, x2, x3; 
      x1, x2, x3, x4;
@@ -61,19 +61,58 @@ St = sum((y - mean(y)).^2);
 Se = sqrt(Sr/(n - (m + 1)));
 r2 = (St - Sr)/St;
 
-%{
-3.Calculate the correlation coefficients for the 2 power 
-equation models from Example 6 in the lecture notes and 
-decide if one equation is better than the other or not.
-%}
-x = [10 20 30 40 50 60 70 80];
-y = [25 70 380 550 610 1220 830 1450];
-
 
 %{
-4. For the following data use polynomial regression to get
-an equation that predictsthe dissolved oxygen concentration 
-as a function of temperature for the case wherethe chloride 
-concentration is 0. Graph the data and your fitting equation.
+6.Use multiple linear regression to fit the following 
+data. Also calculate the standarderror and correlation 
+coefficient.
 %}
+ x1 = [0 1 1 2 2 3 3 4 4];
+ x2 = [0 1 2 1 2 1 2 1 2];
+ y  = [15.1 17.9 12.7 25.6 20.5 35.1 29.7 45.4 40.2];
  
+ M = [ length(x1) sum(x1) sum(x2); 
+    sum(x1) sum(x1.^2) sum(x1.*x2); 
+    sum(x2) sum(x1.*x2) sum(x2.^2) ];
+
+b = [ sum(y) sum(x1.*y) sum(x2.*y) ]';
+
+a = M\b;
+
+xx1 = linspace(min(x1),max(x1));
+xx2 = linspace(min(x2),max(x2));
+yy = a(1) + a(2).*xx1 + a(3).*xx2;
+%plot(x1,y,'or',x2,y,'og',xx1,yy,xx2,yy);
+
+St = sum( (y - mean(y) ).^2 );
+Sr = sum( (y - (a(1)+a(2).*x1+a(3).*x2)).^2);
+r = sqrt( (St-Sr)/St ) ;
+
+Syx = sqrt(Sr/(length(x1) - (2+1)));
+
+
+%{
+8.Three disease-carrying organisms decay exponentially in 
+seawater according tothe following model equation. Use 
+general least squares to estimate thecoefficients and 
+estimate the initial concentration of each organism from 
+the following measurements.
+%}
+t = [0.5 1 2 3 4 5 6 7 9];
+y = [6 4.4 3.2 2.7 2 1.9 1.7 1.4 1.1];
+
+Z = [ exp(t.*-1.5); exp(t.*-0.3);exp(-0.05.*t)]';
+
+a = (Z'*Z)\(Z'*y') ;
+
+f = @(t) a(1).*exp(-1.5.*t) + a(2).*exp(-0.3.*t) + a(3).*exp(-0.05.*t);
+
+xx = linspace(min(t),max(t));
+plot(t,y,'or');
+hold on
+plot(xx,f(xx));
+
+St = sum( (y - mean(y)).^2 );
+Sr = sum( (y - f(t)).^2 );
+r = sqrt( (St - Sr)/ St );
+Syx = sqrt( Sr / (length(t) - (3+1)) );
