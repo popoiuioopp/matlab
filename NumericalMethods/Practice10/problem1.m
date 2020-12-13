@@ -54,6 +54,7 @@ f = @(x) (0.2 + 25.*x - 200.*x.^2 + 675.*x.^3 - 900.*x.^4 + 400.*x.^5);
 x = linspace(0,0.8,4);
 y = f(x);
 result = problem6func(f, min(x), max(x), length(x));
+result = compositeSimpson(f, min(x), max(x), length(x));
 test = trapz(x,y);
 fprintf("Question 6 : My Composite Simpson's 1/3 = %f\n\t\t\t Build in Trapz = %f\n", result, test);
 

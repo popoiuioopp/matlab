@@ -114,11 +114,22 @@ D_improved = (4/3)*(D_better) - (1/3)*(D_worse);
 syms t;
 v2 =  (2.*t)./ sqrt(1+t.^2);
 
-v_diff = diff(v2);
-v_syms = matlabFunction(diff(v_diff));
+v_syms = matlabFunction(diff(v2));
 
-d_true = v_syms(desire)
+d_true = v_syms(desire);
 
-err_worse = abs((d_true - D_worse) / d_true) * 100 
-err_better = abs((d_true - D_better) / d_true) * 100
-err_improved = abs((d_true - D_improved) / d_true) * 100
+err_worse = abs((d_true - D_worse) / d_true) * 100 ;
+err_better = abs((d_true - D_better) / d_true) * 100;
+err_improved = abs((d_true - D_improved) / d_true) * 100;
+
+%{
+6.Evaluate ∂f/∂x, ∂f/∂y and ∂​2​f/∂x​2​ for the following function 
+at x = y = 1 numerically with Δx = Δy = 0.0001:
+%}
+f = @(x, y) 3.*x.*y + 3.*x - x.^3 - 3.*y.^3;
+delta = 0.0001;
+dfx = (f(1 + delta, 1) - f(1 - delta, 1)) / (2*delta);
+dfy = (f(1, 1 + delta) - f(1, 1 - delta)) / (2*delta);
+ddfx = (((f(1 + 2*delta, 1) - f(1, 1)) / (2*delta)) - ...
+    ((f(1, 1) - f(1 - 2*delta, 1)) / (2*delta))) ...
+    / (2*delta);

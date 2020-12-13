@@ -65,19 +65,5 @@ while start < ending
     k2 = f(start + (1/2)*step, y(end) + ((1/2)*k1*step));
     k3 = f(start + (1/2)*step, y(end) + ((1/2)*k2*step));
     k4 = f(start + step, y(end) + (k3*step));
-    y(end+1) = y(end) + ((1/6)*(k1 + 2*k2 + 2*k3 + k4)*step);
-    start = start + step;
+    
 end
-hold on;
-plot(linspace(0,3, length(y)), y);
-plot(3, y(end), 'or');
-
-%{
-5.Use the scripts you created in Questions 2-4 to write function 
-files that solve a 1st order ODE using each method. The inputs to 
-the functions should be the 1stderivative function, f(t,y), the 
-end time, an initial point, and the step size for allmethods 
-except the Heun method with iteration. For the Heun method with 
-iterationreplace the step size input with the required tolerance. 
-Test your functions with theODE from question 1.
-%}
